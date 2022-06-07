@@ -1,4 +1,5 @@
 import TheWeather from './components/Weather/TheWeather';
+import TheClock from './components/Clock/TheClock';
 import './App.css';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header"></header>
       <TheWeather />
+      <TheClock />
     </div>
   );
 }

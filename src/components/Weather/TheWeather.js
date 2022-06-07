@@ -15,7 +15,7 @@ const TheWeather = () => {
       );
 
       if (!res.ok) {
-        throw new Error('Somethong went wrong');
+        throw new Error('Something went wrong');
       }
 
       const resData = await res.json();
@@ -33,7 +33,7 @@ const TheWeather = () => {
 
   if (isLoading) {
     return (
-      <section className={styles.MealsLoading}>
+      <section className={styles.WheatherLoading}>
         <p>Loading...</p>
       </section>
     );
@@ -41,7 +41,7 @@ const TheWeather = () => {
 
   if (httpError) {
     return (
-      <section className={styles.MealsError}>
+      <section className={styles.WeatherError}>
         <p>{httpError}</p>
       </section>
     );
