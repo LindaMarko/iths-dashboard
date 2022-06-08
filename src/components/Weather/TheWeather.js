@@ -11,7 +11,7 @@ const TheWeather = () => {
   useEffect(() => {
     const fetchWeather = async () => {
       const res = await fetch(
-        'https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&APPID=147b874875d53e0e9f84cbacd0567b99'
+        'https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&APPID=146cfb9b9a3e31c42f1360b9a34d89b1'
       );
 
       if (!res.ok) {
@@ -29,6 +29,12 @@ const TheWeather = () => {
       setIsLoading(false);
       setHttpError(error.message);
     });
+
+    const interval = setInterval(() => {
+      fetchWeather();
+    }, 600000);
+
+    return () => clearInterval(interval);
   }, []);
 
   if (isLoading) {
@@ -63,7 +69,7 @@ const TheWeather = () => {
   return (
     <Card>
       <section>
-        <h1>Today's Weather</h1>
+        <h1>Current Weather</h1>
         <h2>{weatherData.name}</h2>
         <p>{weatherData.weather[0].description}</p>
         <h2>{weatherData.main.temp.toFixed(1)}°C</h2>
