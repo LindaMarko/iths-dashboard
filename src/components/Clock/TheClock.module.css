@@ -39,11 +39,11 @@
 .needle.second {
   transform: translate(-50%, -100%) rotate(0deg);
   height: 100px;
-  background-color: #e74c3c;
+  background-color: #6f264d;
 }
 
 .center-point {
-  background-color: #e74c3c;
+  background-color: #6f264d;
   width: 10px;
   height: 10px;
   position: absolute;

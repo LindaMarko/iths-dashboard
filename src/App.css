@@ -1,6 +1,4 @@
-/* Mobile */
-
-.App-header {
-  background-color: blueviolet;
-  height: 5rem;
+.main {
+  display: flex;
+  flex-wrap: wrap;
 }

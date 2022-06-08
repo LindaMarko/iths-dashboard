@@ -1,0 +1,13 @@
+/* Mobile */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #662246;
+  color: white;
+  height: 5rem;
+}
+.h1 {
+  font-size: 1.2rem;
+  margin: auto 0;
+}
