@@ -4,20 +4,11 @@ const statics = self.__WB_MANIFEST;
 
 self.addEventListener('install', (event) => {
   console.log('SW Installing');
-  event.waitUntil(
-    caches
-      .open('static')
-      .then((cache) =>
-        cache.addAll([
-          '/',
-          'index.html',
-          '/static/js/main.7974edee.js',
-          '/static/css/main.dc4f7f01.css',
-        ])
-      )
-  );
+  event.waitUntil(caches.open('static').then((cache) => cache.addAll(['/'])));
   self.skipWaiting();
 });
+
+// statics.map((url) => url.url)
 
 self.addEventListener('activate', (event) => {
   console.log('SW Activating');
@@ -29,7 +20,32 @@ self.addEventListener('fetch', (event) => {
       if (response) {
         return response;
       }
+
+      // if (!navigator.onLine) {
+      //   const markup = '<h1>Seems you are offline!</h1>';
+      //   const headers = { 'Content-Type': 'text/html' };
+      //   const response = new Response(markup, { headers });
+      //   return response;
+      // }
       return fetch(event.request);
     })
   );
 });
+
+// self.addEventListener('fetch', (event) => {
+//   if (navigator.onLine) {
+//     console.log('Online!');
+//   } else {
+//     console.log('Offline!');
+//   }
+// });
+
+// self.addEventListener('fetch', (event) => {
+//   if (!navigator.onLine) {
+//     const markup = '<h1>Seems you are offline!.</h1>';
+//     const headers = { 'Content-Type': 'text/html' };
+//     const response = new Response(markup, { headers });
+//     event.respondWith(response);
+//   } else {
+//   }
+// });

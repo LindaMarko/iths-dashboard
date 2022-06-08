@@ -1,6 +1,7 @@
-import TheHeader from './components/TheHeader';
+import TheHeader from './components/Layout/TheHeader';
 import TheWeather from './components/Weather/TheWeather';
 import TheClock from './components/Clock/TheClock';
+import TheFooter from './components/Layout/TheFooter';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <TheWeather />
         <TheClock />
       </main>
+      <TheFooter />
     </div>
   );
 }

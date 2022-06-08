@@ -1,4 +1,4 @@
-import logo from '../assets/ithslogga.png';
+import logo from '../../assets/ithslogga.png';
 import styles from './TheHeader.module.css';
 
 const TheHeader = () => {

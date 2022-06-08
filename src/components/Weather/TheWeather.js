@@ -20,7 +20,6 @@ const TheWeather = () => {
 
       const resData = await res.json();
 
-      console.log(resData);
       setWeatherData(resData);
       setIsLoading(false);
     };
