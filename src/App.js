@@ -1,6 +1,7 @@
 import TheHeader from './components/Layout/TheHeader';
 import TheWeather from './components/Weather/TheWeather';
 import TheClock from './components/Clock/TheClock';
+import ClassSchedule from './components/Schedule/ClassSchedule';
 import TheFooter from './components/Layout/TheFooter';
 import './App.css';
 
@@ -11,6 +12,7 @@ function App() {
       <main className="main">
         <TheWeather />
         <TheClock />
+        <ClassSchedule />
       </main>
       <TheFooter />
     </div>

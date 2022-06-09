@@ -2,11 +2,13 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  flex-shrink: 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
   padding: 0.5rem;
   background-color: #662246;
   color: white;
-  height: 5rem;
+  height: 3rem;
 }
 .h1 {
   font-size: 1rem;
