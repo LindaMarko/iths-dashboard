@@ -10,9 +10,9 @@ function App() {
     <div className="App">
       <TheHeader />
       <main className="main">
-        <TheWeather />
         <TheClock />
         <ClassSchedule />
+        <TheWeather />
       </main>
       <TheFooter />
     </div>

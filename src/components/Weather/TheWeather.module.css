@@ -1,0 +1,26 @@
+/* Mobile */
+.weather {
+  text-align: center;
+}
+.city {
+  font-size: 1.5rem;
+}
+.desc::first-letter {
+  text-transform: uppercase;
+}
+.degree {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0.8rem 0 0.3rem 0;
+}
+.icon {
+  background-color: #efe5ea;
+  border-radius: 50%;
+  margin: 1rem 0;
+  width: 100px;
+}
+.sunTime {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}

@@ -1,11 +1,16 @@
-import logo from '../../assets/ithslogga.png';
+import logoLarge from '../../assets/ITHS_logo_liggande.png';
+import logoSmall from '../../assets/ITHS_logo.png';
 import styles from './TheHeader.module.css';
 
 const TheHeader = () => {
   return (
     <header className={styles.header}>
-      <h1 className={styles.h1}>Welcome to IT-Högskolan</h1>
-      <img src={logo} alt="ITHS logo" />
+      <h1 className={styles.h1}>
+        Välkommen till <br />
+        IT-Högskolan
+      </h1>
+      <img className={styles.logoLarge} src={logoLarge} alt="ITHS logo" />
+      <img className={styles.logoSmall} src={logoSmall} alt="ITHS logo" />
     </header>
   );
 };

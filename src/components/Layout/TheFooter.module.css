@@ -2,15 +2,32 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+  margin-top: 2rem;
   padding: 0.5rem;
-  background-color: #662246;
+  background-color: #693250;
   color: white;
   height: 3rem;
 }
 .h1 {
   font-size: 1rem;
   margin: auto 0;
+}
+
+.logoLarge {
+  display: none;
+}
+
+@media (min-width: 1020px) {
+  .footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 0.5rem;
+  }
+  .logoSmall {
+    display: none;
+  }
+  .logoLarge {
+    display: block;
+  }
 }

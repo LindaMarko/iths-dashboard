@@ -67,18 +67,20 @@ const TheWeather = () => {
 
   return (
     <Card>
-      <section>
-        <h1>Current Weather</h1>
-        <h2>{weatherData.name}</h2>
-        <p>{weatherData.weather[0].description}</p>
-        <h2>{weatherData.main.temp.toFixed(1)}°C</h2>
-        <p>Feels like: {weatherData.main.feels_like.toFixed(1)}°C </p>
+      <section className={styles.weather}>
+        {/* <h1 className={styles.h1}>Väder</h1> */}
+        <h1 className={styles.city}>{weatherData.name}</h1>
+        <p className={styles.desc}>{weatherData.weather[0].description}</p>
+        <h2 className={styles.degree}>{weatherData.main.temp.toFixed(1)}°C</h2>
+        <p className={styles.feels}>
+          Feels like: {weatherData.main.feels_like.toFixed(1)}°C{' '}
+        </p>
         <img
-          width="150"
+          className={styles.icon}
           src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-          alt=""
+          alt="Weather icon"
         />
-        <div>
+        <div className={styles.sunTime}>
           <p>Sunrise: {sunriseTime}</p>
           <p>Sunset: {sunsetTime}</p>
         </div>

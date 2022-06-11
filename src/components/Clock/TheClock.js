@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-// import Clock from 'react-clock';
-// import 'react-clock/dist/Clock.css';
+
 import styles from './TheClock.module.css';
 
 import Card from '../UI/Card';
@@ -12,15 +11,6 @@ const TheClock = () => {
   const [hourStyle, setHourStyle] = useState({});
   const [minuteStyle, setMinuteStyle] = useState({});
   const [secondStyle, setSecondStyle] = useState({});
-  // const [value, setValue] = useState(new Date());
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => setValue(new Date()), 1000);
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
 
   useEffect(() => {
     const days = [
@@ -55,7 +45,7 @@ const TheClock = () => {
       const hoursForClock = hours >= 13 ? hours % 12 : hours;
       const minutes = time.getMinutes();
       const seconds = time.getSeconds();
-      const ampm = hours >= 12 ? 'PM' : 'AM';
+      const ampm = hours >= 12 ? 'pm' : 'am';
 
       setDate(time.getDate());
 
@@ -137,8 +127,6 @@ const TheClock = () => {
             <span className={styles.circle}>{date}</span>
           </div>
         </div>
-        {/* <p>Current time:</p>
-        <Clock value={value} /> */}
       </section>
     </Card>
   );

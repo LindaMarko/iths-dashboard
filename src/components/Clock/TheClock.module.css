@@ -3,6 +3,7 @@
   --secondary-color: #fff;
 }
 
+/* Mobile */
 .clock-container {
   display: flex;
   flex-direction: column;
@@ -12,8 +13,11 @@
 
 .clock {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
+  margin-top: 0.55rem;
+  /* border: solid 1px #9c4f77; */
+  border-radius: 50%;
 }
 
 .needle {
@@ -21,8 +25,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 65px;
-  width: 3px;
+  height: 55px;
+  width: 2px;
   transform-origin: bottom center;
   transition: all 0.5s ease-in;
 }
@@ -33,12 +37,12 @@
 
 .needle.minute {
   transform: translate(-50%, -100%) rotate(0deg);
-  height: 100px;
+  height: 65px;
 }
 
 .needle.second {
   transform: translate(-50%, -100%) rotate(0deg);
-  height: 100px;
+  height: 65px;
   background-color: #9c4f77;
 }
 
@@ -66,26 +70,64 @@
 }
 
 .time {
-  font-size: 60px;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .date {
-  color: #aaa;
-  font-size: 14px;
+  color: #9c4f77;
+  font-weight: 500;
+  font-size: 0.8rem;
   letter-spacing: 0.3px;
   text-transform: uppercase;
 }
 
 .date .circle {
-  background-color: var(--primary-color);
+  background-color: #693250;
   color: var(--secondary-color);
   border-radius: 50%;
-  height: 18px;
-  width: 18px;
+  height: 23px;
+  width: 23px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 18px;
   transition: all 0.5s ease-in;
-  font-size: 12px;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 1020px) {
+  .clock {
+    width: 200px;
+    height: 200px;
+  }
+  .needle {
+    top: 50%;
+    left: 50%;
+    height: 65px;
+    width: 3px;
+  }
+  .needle.minute {
+    height: 100px;
+  }
+
+  .needle.second {
+    height: 100px;
+  }
+  .time {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+
+  .date {
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+  }
+  .date .circle {
+    height: 18px;
+    width: 18px;
+    line-height: 18px;
+    font-size: 12px;
+  }
 }
