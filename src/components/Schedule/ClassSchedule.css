@@ -21,3 +21,9 @@ tr:nth-child(even) {
   color: white;
   font-weight: 600;
 }
+
+@media (min-width: 1020px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+}

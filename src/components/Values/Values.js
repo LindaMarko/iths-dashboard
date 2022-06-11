@@ -1,4 +1,5 @@
 import styles from './Values.module.css';
+import logoLarge from '../../assets/ITHS_logo_liggande_Payoff_Pos.png';
 
 import Card from '../UI/Card';
 
@@ -8,7 +9,7 @@ const Values = () => {
       <section className={styles.values}>
         <h1 className={styles.title}>IT-Högskolans värderingar</h1>
         <div className={styles.lists}>
-          <h3 className={styles.listTitle}>✨Kvalitet</h3>
+          <h2 className={styles.listTitle}>✨Kvalitet</h2>
           <ul>
             <li>Relevant kunskap</li>
             <li>Pedagogiska utbildare och professionell atmosfär</li>
@@ -16,7 +17,7 @@ const Values = () => {
           </ul>
         </div>
         <div className={styles.lists}>
-          <h3 className={styles.listTitle}>🧭Branschnära</h3>
+          <h2 className={styles.listTitle}>🧭Branschnära</h2>
           <ul>
             <li>
               Utbildingar som är kopplade till arbetslivets förväntningar och
@@ -28,7 +29,7 @@ const Values = () => {
           </ul>
         </div>
         <div className={styles.lists}>
-          <h3 className={styles.listTitle}>💡Inspiration</h3>
+          <h2 className={styles.listTitle}>💡Inspiration</h2>
           <ul>
             <li>Passion för IT och en vilja att lära sig</li>
             <li>Energi genom samarbeten</li>
@@ -36,6 +37,7 @@ const Values = () => {
             <li>Utmanande uppgifter, case och projekt - Learning by doing!</li>
           </ul>
         </div>
+        <img className={styles.logo} src={logoLarge} alt="ITHS logo" />
       </section>
     </Card>
   );

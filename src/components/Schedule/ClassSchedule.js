@@ -64,6 +64,9 @@ const ClassSchedule = () => {
             <th>Class</th>
             <th>{currentDay}</th>
           </tr>
+          {(currentDay === 'Saturday' || currentDay === 'Sunday') && (
+            <h3 className="weekendText">No classes today</h3>
+          )}
           {/* {currentDaySchedule.schedule.map((item) => (
             <tr>
               <td>{item.class}</td>

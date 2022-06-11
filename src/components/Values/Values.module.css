@@ -1,5 +1,4 @@
 /* Mobile */
-
 .values {
   display: flex;
   flex-direction: column;
@@ -15,9 +14,24 @@
   margin-left: 2rem;
   margin-bottom: 2rem;
   font-size: 0.8rem;
+  line-height: 1.6;
 }
 
 .listTitle {
   color: #693250;
   margin-bottom: 0.5rem;
+}
+.logo {
+  width: 100%;
+}
+
+@media (min-width: 1020px) {
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .lists {
+    font-size: 1rem;
+  }
 }

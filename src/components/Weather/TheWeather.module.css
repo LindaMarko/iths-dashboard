@@ -15,7 +15,7 @@
   margin: 0.8rem 0 0.3rem 0;
 }
 .icon {
-  background-color: #efe5ea;
+  background-color: #e9c0d4;
   border-radius: 30%;
   margin: 1rem 0;
   width: 100px;
@@ -24,4 +24,33 @@
   display: flex;
   justify-content: space-between;
   font-weight: 500;
+}
+
+@media (min-width: 1020px) {
+  .city {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .desc {
+    font-size: 1rem;
+  }
+  .degree {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 1.2rem 0 0.5rem 0;
+  }
+  .feels {
+    font-size: 1rem;
+  }
+  .icon {
+    border-radius: 30%;
+    margin: 1.5rem 0;
+    width: 150px;
+  }
+  .sunTime {
+    padding: 0.8rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
 }

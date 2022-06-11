@@ -11,7 +11,7 @@ const TheNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       const res = await fetch(
-        ' https://newsapi.org/v2/top-headlines?sources=bbc-news&pagesize=3&apiKey=f73cc7719eba4f818d867bb2f981d5fa'
+        ' https://newsapi.org/v2/top-headlines?sources=bbc-news&pagesize=2&apiKey=f73cc7719eba4f818d867bb2f981d5fa'
       );
 
       if (!res.ok) {
@@ -61,11 +61,14 @@ const TheNews = () => {
           {newsData.map((item) => (
             <li className={styles.list}>
               <h2 className={styles.title}>{item.title}</h2>
-              <p>{item.description}</p>
-              <p>{item.publishedAt}</p>
+              <p className={styles.desc}>{item.description}</p>
+              <p className={styles.time}>{item.publishedAt}</p>
             </li>
           ))}
         </ul>
+        <p>
+          For more news go to: <a href="https://www.bbc.com/news">BBC News.</a>
+        </p>
       </section>
     </Card>
   );

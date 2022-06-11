@@ -68,7 +68,6 @@ const TheWeather = () => {
   return (
     <Card>
       <section className={styles.weather}>
-        {/* <h1 className={styles.h1}>Väder</h1> */}
         <h1 className={styles.city}>{weatherData.name}</h1>
         <p className={styles.desc}>{weatherData.weather[0].description}</p>
         <h2 className={styles.degree}>{weatherData.main.temp.toFixed(1)}°C</h2>

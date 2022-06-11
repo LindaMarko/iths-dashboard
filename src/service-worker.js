@@ -24,13 +24,6 @@ self.addEventListener('fetch', (event) => {
       if (response) {
         return response;
       }
-
-      // if (!navigator.onLine) {
-      //   const markup = '<h1>Seems you are offline!</h1>';
-      //   const headers = { 'Content-Type': 'text/html' };
-      //   const response = new Response(markup, { headers });
-      //   return response;
-      // }
       return fetch(event.request);
     })
   );
