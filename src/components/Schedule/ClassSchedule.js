@@ -1,116 +1,75 @@
+import { useEffect, useState, useMemo } from 'react';
+
 import Card from '../UI/Card';
 import './ClassSchedule.css';
+import { Monday, Tuesday, Friday } from '../../assets/salsschema.js';
 
 const ClassSchedule = () => {
+  const [currentDay, setCurrentDay] = useState();
+  const [currentDaySchedule, setCurrentDaySchedule] = useState([]);
+
+  const schedule = useMemo(() => {
+    return [
+      {
+        day: 'Monday',
+        schedule: Monday,
+      },
+      {
+        day: 'Tuesday',
+        schedule: Tuesday,
+      },
+      {
+        day: 'Friday',
+        schedule: Friday,
+      },
+    ];
+  }, []);
+
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
+  useEffect(() => {
+    const getSchedule = () => {
+      const time = new Date();
+      const day = time.getDay();
+      setCurrentDay(`${days[day]}`);
+
+      const correctDay = schedule.find((el) => el.day === currentDay);
+      setCurrentDaySchedule(correctDay);
+      console.log(currentDay, currentDaySchedule);
+    };
+
+    getSchedule();
+
+    const interval = setInterval(() => {
+      getSchedule();
+    }, 3600000);
+
+    return () => clearInterval(interval);
+  });
+
   return (
     <Card>
       <section>
-        <h1>Classroom Schedule</h1>
+        <h1>Dagens Salsschema</h1>
         <table>
           <tr>
             <th>Class</th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
+            <th>{currentDay}</th>
           </tr>
-          <tr>
-            <td>WU21</td>
-            <td>Floor 5: room 5</td>
-            <td>-</td>
-            <td>Floor 5: room 5</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>.NET21</td>
-            <td>Floor 5: room 2</td>
-            <td>-</td>
-            <td>Floor 5: room 2</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>FEU21</td>
-            <td>Floor 5: room 1</td>
-            <td>-</td>
-            <td>Floor 5: room 1</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>ITP21</td>
-            <td>Floor 6: room 8</td>
-            <td>-</td>
-            <td>Floor 6: room 8</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>AU21</td>
-            <td>-</td>
-            <td>Floor 5: room 5</td>
-            <td>-</td>
-            <td>Floor 5: room 5</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>JSU21</td>
-            <td>-</td>
-            <td>Floor 5: room 3</td>
-            <td>Floor 5: room 1</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>JU21</td>
-            <td>-</td>
-            <td>Floor 5: room 2</td>
-            <td>-</td>
-            <td>Floor 5: room 2</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>WU20</td>
-            <td>-</td>
-            <td>Floor 6: room 7</td>
-            <td>-</td>
-            <td>Floor 6: room 8</td>
-            <td>Floor 5: room 4</td>
-          </tr>
-          <tr>
-            <td>.NET20</td>
-            <td>Floor 5: room 4</td>
-            <td>Floor 6: room 8</td>
-            <td>-</td>
-            <td>-</td>
-            <td>Floor 5: room 2</td>
-          </tr>
-          <tr>
-            <td>FEU20</td>
-            <td>-</td>
-            <td>Floor 5: room 5</td>
-            <td>-</td>
-            <td>Floor 5: room 5</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>AU20</td>
-            <td>-</td>
-            <td>Floor 5: room 4</td>
-            <td>-</td>
-            <td>Floor 5: room 4</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>JSU20</td>
-            <td>Floor 5: room 3</td>
-            <td>-</td>
-            <td>-</td>
-            <td>Floor 5: room 3</td>
-            <td>-</td>
-          </tr>
+          {/* {currentDaySchedule.schedule.map((item) => (
+            <tr>
+              <td>{item.class}</td>
+              <td>{item.classroom}</td>
+            </tr>
+          ))} */}
         </table>
       </section>
     </Card>
