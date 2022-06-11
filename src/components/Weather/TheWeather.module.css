@@ -4,6 +4,7 @@
 }
 .city {
   font-size: 1.5rem;
+  color: #603250;
 }
 .desc::first-letter {
   text-transform: uppercase;
@@ -15,7 +16,7 @@
 }
 .icon {
   background-color: #efe5ea;
-  border-radius: 50%;
+  border-radius: 30%;
   margin: 1rem 0;
   width: 100px;
 }
