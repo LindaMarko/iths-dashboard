@@ -1,0 +1,12 @@
+/* Mobile */
+.news {
+  padding: 1rem;
+}
+
+.list {
+  list-style: none;
+}
+.title {
+  font-size: 1rem;
+  font-style: italic;
+}
