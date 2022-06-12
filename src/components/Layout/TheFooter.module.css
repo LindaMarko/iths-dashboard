@@ -4,12 +4,14 @@
   justify-content: space-between;
   margin-top: 4rem;
   padding: 0.5rem;
+  padding-right: 0.8rem;
   background-color: #693250;
   color: white;
   height: 3rem;
 }
 .h1 {
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   margin: auto 0;
   color: white;
 }
@@ -23,8 +25,12 @@
     position: fixed;
     width: 100%;
     bottom: 0;
-    padding: 0.5rem;
+    padding: 0.5rem 4rem 0.5rem 2.5rem;
     height: 4rem;
+  }
+  .h1 {
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
   }
   .logoSmall {
     display: none;

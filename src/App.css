@@ -1,14 +1,14 @@
 @media (min-width: 1020px) {
   .wrapper {
-    width: 90%;
-    margin: 0 auto;
+    width: 95%;
+    margin: 1rem auto;
     display: grid;
     grid-template-columns: 2fr 1fr;
   }
-  .main {
+  .first-section,
+  .second-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
   }
   aside {
     grid-column-start: 2;

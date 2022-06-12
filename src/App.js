@@ -13,11 +13,14 @@ function App() {
       <TheHeader />
       <div className="wrapper">
         <main className="main">
-          <TheClock />
-          <ClassSchedule />
-          {/* <Values /> */}
-          <TheWeather />
-          <TheNews />
+          <section className="first-section">
+            <TheClock />
+            <TheWeather />
+          </section>
+          <section className="second-section">
+            <ClassSchedule />
+            <TheNews />
+          </section>
         </main>
         <aside>
           <Values />

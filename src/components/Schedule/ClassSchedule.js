@@ -60,19 +60,23 @@ const ClassSchedule = () => {
       <section>
         <h1>Dagens Salsschema</h1>
         <table>
-          <tr>
-            <th>Class</th>
-            <th>{currentDay}</th>
-          </tr>
-          {(currentDay === 'Saturday' || currentDay === 'Sunday') && (
-            <h3 className="weekendText">No classes today</h3>
-          )}
-          {/* {currentDaySchedule.schedule.map((item) => (
+          <thead>
             <tr>
-              <td>{item.class}</td>
-              <td>{item.classroom}</td>
+              <th>Class</th>
+              <th>{currentDay}</th>
             </tr>
-          ))} */}
+          </thead>
+          <tbody>
+            {(currentDay === 'Saturday' || currentDay === 'Sunday') && (
+              <h3 className="weekendText">No classes today</h3>
+            )}
+            {/* {currentDaySchedule.schedule.map((item) => (
+              <tr>
+                <td>{item.class}</td>
+                <td>{item.classroom}</td>
+              </tr>
+            ))} */}
+          </tbody>
         </table>
       </section>
     </Card>

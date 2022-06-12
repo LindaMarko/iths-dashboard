@@ -14,11 +14,10 @@
 
 .clock {
   position: relative;
-  width: 100px;
-  height: 100px;
-  margin-top: 0.55rem;
-  /* border: solid 1px #9c4f77;
-  border-radius: 30%; */
+  width: 110px;
+  height: 110px;
+  border: solid 3px #693250;
+  border-radius: 50%;
 }
 
 .needle {
@@ -26,7 +25,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 55px;
+  height: 38px;
   width: 2px;
   transform-origin: bottom center;
   transition: all 0.5s ease-in;
@@ -38,12 +37,12 @@
 
 .needle.minute {
   transform: translate(-50%, -100%) rotate(0deg);
-  height: 65px;
+  height: 48px;
 }
 
 .needle.second {
   transform: translate(-50%, -100%) rotate(0deg);
-  height: 65px;
+  height: 48px;
   background-color: #9c4f77;
 }
 
@@ -71,7 +70,7 @@
 }
 
 .time {
-  margin-top: 1.1rem;
+  margin-top: 1rem;
   font-size: 1.5rem;
   font-weight: 500;
 }
@@ -107,14 +106,13 @@
     top: 50%;
     left: 50%;
     height: 65px;
-    width: 3px;
   }
   .needle.minute {
-    height: 100px;
+    height: 85px;
   }
 
   .needle.second {
-    height: 100px;
+    height: 85px;
   }
   .time {
     margin-bottom: 0.7rem;
