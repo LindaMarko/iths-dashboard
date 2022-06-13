@@ -1,29 +1,44 @@
 /* Mobile */
 
 h1 {
+  text-align: center;
+  font-size: 1.4rem;
   color: #603250;
+  margin-bottom: 1.8rem;
 }
 table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
   width: 100%;
+}
+
+th {
+  color: #9c4f77;
 }
 
 td,
 th {
-  /* border: 1px solid #9c4f77; */
-  text-align: left;
+  text-align: center;
   padding: 0.7rem;
 }
 
+td {
+  border-top: 1px solid #9c4f77;
+  font-weight: 500;
+}
+
 tr:nth-child(even) {
-  background-color: #9c4f77;
-  color: white;
-  font-weight: 600;
+  background-color: #f4e3eb;
 }
 
 @media (min-width: 1020px) {
   h1 {
     font-size: 1.8rem;
+  }
+
+  th {
+    font-size: 1.5rem;
+  }
+
+  td {
+    font-size: 1rem;
   }
 }
