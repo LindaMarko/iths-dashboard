@@ -17,6 +17,9 @@
   letter-spacing: 0.1rem;
 }
 
+.offlineText {
+  color: white;
+}
 .logoLarge {
   display: none;
 }

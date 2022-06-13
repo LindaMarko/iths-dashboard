@@ -8,19 +8,19 @@ const ClassSchedule = () => {
   const [currentDay, setCurrentDay] = useState();
   const [currentDaySchedule, setCurrentDaySchedule] = useState([]);
 
-  const schedule = useMemo(() => {
+  const classSchedule = useMemo(() => {
     return [
       {
         day: 'Monday',
-        schedule: Monday,
+        schedule: [...Monday],
       },
       {
         day: 'Tuesday',
-        schedule: Tuesday,
+        schedule: [...Tuesday],
       },
       {
         day: 'Friday',
-        schedule: Friday,
+        schedule: [...Friday],
       },
     ];
   }, []);
@@ -34,6 +34,8 @@ const ClassSchedule = () => {
     'Friday',
     'Saturday',
   ];
+  const correctDay = classSchedule.find((el) => el.day === currentDay);
+  console.log(correctDay);
 
   useEffect(() => {
     const getSchedule = () => {
@@ -41,7 +43,6 @@ const ClassSchedule = () => {
       const day = time.getDay();
       setCurrentDay(`${days[day]}`);
 
-      const correctDay = schedule.find((el) => el.day === currentDay);
       setCurrentDaySchedule(correctDay);
       console.log(currentDay, currentDaySchedule);
     };
@@ -51,7 +52,6 @@ const ClassSchedule = () => {
     const interval = setInterval(() => {
       getSchedule();
     }, 3600000);
-
     return () => clearInterval(interval);
   });
 
@@ -67,15 +67,13 @@ const ClassSchedule = () => {
             </tr>
           </thead>
           <tbody>
-            {(currentDay === 'Saturday' || currentDay === 'Sunday') && (
-              <h3 className="weekendText">No classes today</h3>
-            )}
-            {currentDaySchedule.schedule.map((item) => (
-              <tr>
+            {!correctDay && <h3 className="weekendText">No classes today</h3>}
+            {/* {correctDay && currentDaySchedule.schedule.map((item) => (
+              <tr key={item.class}>
                 <td>{item.class}</td>
                 <td>{item.classroom}</td>
               </tr>
-            ))}
+            ))} */}
           </tbody>
         </table>
       </section>
