@@ -68,12 +68,13 @@ const ClassSchedule = () => {
           </thead>
           <tbody>
             {!correctDay && <h3 className="weekendText">No classes today</h3>}
-            {/* {correctDay && currentDaySchedule.schedule.map((item) => (
-              <tr key={item.class}>
-                <td>{item.class}</td>
-                <td>{item.classroom}</td>
-              </tr>
-            ))} */}
+            {/* {correctDay &&
+              currentDaySchedule.schedule.map((item) => (
+                <tr key={item.class}>
+                  <td>{item.class}</td>
+                  <td>{item.classroom}</td>
+                </tr>
+              ))} */}
           </tbody>
         </table>
       </section>
