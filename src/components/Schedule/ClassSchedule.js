@@ -31,7 +31,7 @@ const ClassSchedule = () => {
   return (
     <Card>
       <section>
-        <h1>Dagens Salsschema</h1>
+        <h1 className="title">Dagens Salsschema</h1>
         <table>
           <thead>
             <tr>

@@ -144,7 +144,5 @@ export const getCurrentDaySchedule = () => {
 
   const currentDaySchedule = correctDayScedule.schedule;
 
-  console.log(currentDay, currentDaySchedule);
-
   return currentDaySchedule;
 };
