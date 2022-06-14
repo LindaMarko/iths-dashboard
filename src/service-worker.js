@@ -17,7 +17,7 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  if (navigator.onLine) {
+  if (!navigator.onLine) {
     console.log('Online!');
   } else {
     console.log('Offline!');
@@ -29,20 +29,22 @@ self.addEventListener('fetch', (event) => {
       if (response) {
         return response;
       }
-      return fetch(event.request);
-
       // if (!navigator.onLine) {
       //   const markup = '<h1>You are offline!</h1>';
       //   const headers = { 'Content-Type': 'text/html' };
       //   const response_1 = new Response(markup, { headers });
       //   return response_1;
       // }
+
+      return fetch(event.request);
       // else {
       //   const result = fetch(event.request);
-      //   result.then((response_2) => {
-      //     cache.put(event.request, response_2.clone());
-      //   });
-      //   return result;
+      //   result
+      //     .then((response_2) => {
+      //       cache.put(event.request, response_2.clone());
+      //       return response_2;
+      //     })
+      //     .catch((error) => console.log(error));
       // }
     })
   );

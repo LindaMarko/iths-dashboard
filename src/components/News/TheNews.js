@@ -29,9 +29,7 @@ const TheNews = () => {
       setHttpError(error.message);
     });
 
-    const interval = setInterval(() => {
-      fetchNews();
-    }, 600000);
+    const interval = setInterval(fetchNews, 600000);
 
     return () => clearInterval(interval);
   }, []);

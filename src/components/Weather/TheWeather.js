@@ -29,9 +29,7 @@ const TheWeather = () => {
       setHttpError(error.message);
     });
 
-    const interval = setInterval(() => {
-      fetchWeather();
-    }, 600000);
+    const interval = setInterval(fetchWeather, 600000);
 
     return () => clearInterval(interval);
   }, []);
