@@ -32,18 +32,20 @@ const ClassSchedule = () => {
     <Card>
       <section>
         <h1 className="title">Dagens Salsschema</h1>
+        {currentDaySchedule.length === 0 && (
+          <h3 className="weekendText">No classes today</h3>
+        )}
         <table>
           <thead>
-            <tr>
-              <th>Class</th>
-              <th>{currentDay}</th>
-            </tr>
+            {currentDaySchedule.length > 0 && (
+              <tr>
+                <th>Class</th>
+                <th>{currentDay}</th>
+              </tr>
+            )}
           </thead>
           <tbody>
-            {!currentDaySchedule && (
-              <h3 className="weekendText">No classes today</h3>
-            )}
-            {currentDaySchedule &&
+            {currentDaySchedule.length > 0 &&
               currentDaySchedule.map((item) => (
                 <tr key={item.class}>
                   <td>{item.class}</td>

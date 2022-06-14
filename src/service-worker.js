@@ -1,51 +1,57 @@
 /* eslint-disable no-restricted-globals */
 
-const statics = self.__WB_MANIFEST;
+const statics = self.__WB_MANIFEST.map((file) => file.url);
 
-self.addEventListener('install', (event) => {
-  console.log('SW Installing');
-  self.skipWaiting();
-  event.waitUntil(
-    caches
-      .open('static')
-      .then((cache) => cache.addAll(statics.map((url) => url.url)))
-  );
-});
+const cacheResources = (files) => {
+  caches.open('static').then((cache) => cache.addAll(files));
+};
 
-self.addEventListener('activate', (event) => {
-  console.log('SW Activating');
-});
+const clearOldCache = () => {
+  caches.keys().then((cacheNames) => {
+    cacheNames.forEach((name) => {
+      if (name !== 'static') caches.delete(name);
+    });
+  });
+};
 
-self.addEventListener('fetch', (event) => {
-  if (!navigator.onLine) {
-    console.log('Online!');
-  } else {
-    console.log('Offline!');
-  }
+const cachedAssets = (request) => {
+  return caches.match(request).then((res) => {
+    if (res) return res;
+    // else
+    //   return new Response('<h1>You are offline.</h1>', {
+    //     headers: { 'Content-Type': 'text/html' },
+    //   });
+  });
+};
 
-  event.respondWith(
-    caches.open('static').then(async (cache) => {
-      const response = await caches.match(event.request);
-      if (response) {
-        return response;
-      }
-      // if (!navigator.onLine) {
-      //   const markup = '<h1>You are offline!</h1>';
-      //   const headers = { 'Content-Type': 'text/html' };
-      //   const response_1 = new Response(markup, { headers });
-      //   return response_1;
-      // }
-
-      return fetch(event.request);
-      // else {
-      //   const result = fetch(event.request);
-      //   result
-      //     .then((response_2) => {
-      //       cache.put(event.request, response_2.clone());
-      //       return response_2;
-      //     })
-      //     .catch((error) => console.log(error));
-      // }
+const fetchAndCache = (request) => {
+  fetch(request)
+    .then((response) => {
+      const resClone = response.clone();
+      caches.open('static').then((cache) => {
+        if (request.url.startsWith('chrome-extension')) return;
+        cache.put(request, resClone);
+      });
+      return response;
     })
-  );
+    .catch((err) => console.log('error', err));
+};
+
+self.addEventListener('install', (e) => {
+  console.log('SW installing');
+  e.waitUntil(cacheResources(statics));
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (e) => {
+  console.log('SW activating');
+  e.waitUntil(clearOldCache());
+});
+
+self.addEventListener('fetch', (e) => {
+  if (!navigator.onLine) {
+    e.respondWith(cachedAssets(e.request));
+  } else {
+    fetchAndCache(e.request);
+  }
 });

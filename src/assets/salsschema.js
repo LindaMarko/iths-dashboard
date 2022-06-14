@@ -124,6 +124,14 @@ const schedule = [
       },
     ],
   },
+  {
+    day: 'Saturday',
+    schedule: [],
+  },
+  {
+    day: 'Sunday',
+    schedule: [],
+  },
 ];
 
 export const getCurrentDaySchedule = () => {
