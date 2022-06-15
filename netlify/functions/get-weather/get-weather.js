@@ -9,6 +9,7 @@ exports.handler = async (event) => {
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/forecast?q=Stockholm,Sweden&units=metric&appid=${WEATHER_KEY}`
     );
+    console.log(response);
     return {
       statusCode: 200,
       body: JSON.stringify(response.data),

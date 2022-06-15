@@ -11,15 +11,16 @@ const TheWeather = () => {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const res = await API.getWeather();
-      console.log(res);
+      const res = await API.getWeather(`/.netlify/functions/get-weather`);
+      console.log(res.data);
       // if (!res.ok) {
       //   throw new Error('Something went wrong');
       // }
 
       // const resData = await res.json();
 
-      // setWeatherData(res);
+      setWeatherData(res.data);
+      console.log(weatherData);
       setIsLoading(false);
     };
 
