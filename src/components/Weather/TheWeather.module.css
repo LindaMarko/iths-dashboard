@@ -6,6 +6,9 @@
   font-size: 1.5rem;
   color: #603250;
 }
+.desc {
+  font-size: 0.7rem;
+}
 .desc::first-letter {
   text-transform: uppercase;
 }
@@ -13,6 +16,9 @@
   font-size: 1.5rem;
   font-weight: 500;
   margin: 0.8rem 0 0.3rem 0;
+}
+.feels {
+  font-size: 0.7rem;
 }
 .icon {
   background-color: #e9c0d4;
@@ -26,7 +32,7 @@
   font-weight: 500;
 }
 
-@media (min-width: 1020px) {
+@media (min-width: 1550px) {
   .city {
     font-size: 1.8rem;
     margin-bottom: 0.4rem;

@@ -7,9 +7,17 @@
   border-radius: 14px;
   background-color: white;
 }
-@media (min-width: 1020px) {
+
+@media (min-width: 1024px) {
   .card {
-    margin: 1rem auto;
+    margin: 0.5rem 1rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1550px) {
+  .card {
+    margin: 2rem auto;
     padding: 1.8rem 2rem;
   }
 }

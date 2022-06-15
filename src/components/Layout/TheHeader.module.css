@@ -24,7 +24,7 @@
   display: none;
 }
 
-@media (min-width: 1020px) {
+@media (min-width: 1550px) {
   .header {
     padding: 0.8rem 3rem;
   }
