@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import * as API from '../../api/API.js';
 import Card from '../UI/Card';
 import styles from './TheNews.module.css';
 
@@ -10,15 +11,10 @@ const TheNews = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const res = await fetch(
-        ' https://newsapi.org/v2/top-headlines?sources=bbc-news&pagesize=2&apiKey=f73cc7719eba4f818d867bb2f981d5fa'
-      );
+      const res = await API.getNews(`/.netlify/functions/get-news`);
 
-      if (!res.ok) {
-        throw new Error('Something went wrong');
-      }
-
-      const resData = await res.json();
+      const resData = res.data;
+      console.log(resData);
 
       setNewsData(resData.articles);
       setIsLoading(false);

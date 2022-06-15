@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-const WEATHER_KEY = process.env.WEATHER_KEY;
+const NEWS_KEY = process.env.NEWS_KEY;
 
 exports.handler = async (event) => {
   try {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&appid=${WEATHER_KEY}`
+      `https://newsapi.org/v2/top-headlines?sources=bbc-news&pagesize=2&apiKey=${NEWS_KEY}`
     );
     console.log(response);
     return {
