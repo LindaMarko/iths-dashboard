@@ -11,7 +11,7 @@ const TheWeather = () => {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const res = await API.getWeather(`/.netlify/functions/get-weather`);
+      const res = await API.getApi(`/.netlify/functions/get-weather`);
 
       const resData = res.data;
 

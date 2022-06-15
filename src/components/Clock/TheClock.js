@@ -46,7 +46,6 @@ const TheClock = () => {
       const minutes = time.getMinutes();
       const seconds = time.getSeconds();
       const ampm = hours >= 12 ? 'pm' : 'am';
-
       setDate(time.getDate());
 
       setHourStyle({

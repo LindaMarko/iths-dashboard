@@ -11,10 +11,9 @@ const TheNews = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const res = await API.getNews(`/.netlify/functions/get-news`);
+      const res = await API.getApi(`/.netlify/functions/get-news`);
 
       const resData = res.data;
-      console.log(resData);
 
       setNewsData(resData.articles);
       setIsLoading(false);

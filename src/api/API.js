@@ -1,15 +1,8 @@
 import axios from 'axios';
 
-export async function getWeather() {
+export async function getApi(url) {
   try {
-    return await axios.get(`/.netlify/functions/get-weather`);
-  } catch (error) {
-    console.log(error);
-  }
-}
-export async function getNews() {
-  try {
-    return await axios.get(`/.netlify/functions/get-news`);
+    return await axios.get(url);
   } catch (error) {
     console.log(error);
   }
