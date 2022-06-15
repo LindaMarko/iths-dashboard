@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import * as API from '../../api/API.js';
 import Card from '../UI/Card';
 import styles from './TheWeather.module.css';
 
@@ -10,17 +11,15 @@ const TheWeather = () => {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const res = await fetch(
-        'https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&APPID=146cfb9b9a3e31c42f1360b9a34d89b1'
-      );
+      const res = await API.getWeather();
+      console.log(res);
+      // if (!res.ok) {
+      //   throw new Error('Something went wrong');
+      // }
 
-      if (!res.ok) {
-        throw new Error('Something went wrong');
-      }
+      // const resData = await res.json();
 
-      const resData = await res.json();
-
-      setWeatherData(resData);
+      // setWeatherData(res);
       setIsLoading(false);
     };
 
@@ -50,22 +49,22 @@ const TheWeather = () => {
     );
   }
 
-  // Sunrise and sunset data
-  const sunriseConvert = new Date(weatherData.sys.sunrise * 1000);
-  const sunriseTime = sunriseConvert.toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+  // // Sunrise and sunset data
+  // const sunriseConvert = new Date(weatherData.sys.sunrise * 1000);
+  // const sunriseTime = sunriseConvert.toLocaleTimeString([], {
+  //   hour: '2-digit',
+  //   minute: '2-digit',
+  // });
 
-  const sunsetConvert = new Date(weatherData.sys.sunset * 1000);
-  const sunsetTime = sunsetConvert.toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+  // const sunsetConvert = new Date(weatherData.sys.sunset * 1000);
+  // const sunsetTime = sunsetConvert.toLocaleTimeString([], {
+  //   hour: '2-digit',
+  //   minute: '2-digit',
+  // });
 
   return (
     <Card>
-      <section className={styles.weather}>
+      {/* <section className={styles.weather}>
         <h1 className={styles.city}>{weatherData.name}</h1>
         <p className={styles.desc}>{weatherData.weather[0].description}</p>
         <h2 className={styles.degree}>{weatherData.main.temp.toFixed(1)}°C</h2>
@@ -81,7 +80,7 @@ const TheWeather = () => {
           <p>Sunrise: {sunriseTime}</p>
           <p>Sunset: {sunsetTime}</p>
         </div>
-      </section>
+      </section> */}
     </Card>
   );
 };
