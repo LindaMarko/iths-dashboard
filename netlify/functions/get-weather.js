@@ -7,7 +7,7 @@ const WEATHER_KEY = process.env.WEATHER_KEY;
 exports.handler = async (event) => {
   try {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?q=Stockholm,Sweden&units=metric&appid=${WEATHER_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&appid=${WEATHER_KEY}`
     );
     console.log(response);
     return {

@@ -12,15 +12,10 @@ const TheWeather = () => {
   useEffect(() => {
     const fetchWeather = async () => {
       const res = await API.getWeather(`/.netlify/functions/get-weather`);
-      console.log(res.data);
-      // if (!res.ok) {
-      //   throw new Error('Something went wrong');
-      // }
 
-      // const resData = await res.json();
+      const resData = res.data;
 
-      setWeatherData(res.data);
-      console.log(weatherData);
+      setWeatherData(resData);
       setIsLoading(false);
     };
 
@@ -50,22 +45,22 @@ const TheWeather = () => {
     );
   }
 
-  // // Sunrise and sunset data
-  // const sunriseConvert = new Date(weatherData.sys.sunrise * 1000);
-  // const sunriseTime = sunriseConvert.toLocaleTimeString([], {
-  //   hour: '2-digit',
-  //   minute: '2-digit',
-  // });
+  // Sunrise and sunset data
+  const sunriseConvert = new Date(weatherData.sys.sunrise * 1000);
+  const sunriseTime = sunriseConvert.toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 
-  // const sunsetConvert = new Date(weatherData.sys.sunset * 1000);
-  // const sunsetTime = sunsetConvert.toLocaleTimeString([], {
-  //   hour: '2-digit',
-  //   minute: '2-digit',
-  // });
+  const sunsetConvert = new Date(weatherData.sys.sunset * 1000);
+  const sunsetTime = sunsetConvert.toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 
   return (
     <Card>
-      {/* <section className={styles.weather}>
+      <section className={styles.weather}>
         <h1 className={styles.city}>{weatherData.name}</h1>
         <p className={styles.desc}>{weatherData.weather[0].description}</p>
         <h2 className={styles.degree}>{weatherData.main.temp.toFixed(1)}°C</h2>
@@ -81,7 +76,7 @@ const TheWeather = () => {
           <p>Sunrise: {sunriseTime}</p>
           <p>Sunset: {sunsetTime}</p>
         </div>
-      </section> */}
+      </section>
     </Card>
   );
 };
