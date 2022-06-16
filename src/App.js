@@ -13,17 +13,19 @@ function App() {
   const [onlineState, setOnlineState] = useState(navigator.onLine);
 
   useEffect(() => {
-    const showOffline = () => {
-      console.log('Going offline');
-      setOnlineState(!onlineState);
-    };
-
-    window.addEventListener('offline', showOffline);
-
-    return () => {
-      window.removeEventListener('offline', showOffline);
-    };
-  }, []);
+    function handleConnectionChange(event) {
+      if (event.type === 'offline') {
+        setOnlineState(!onlineState);
+        console.log('You lost connection.');
+      }
+      if (event.type === 'online') {
+        setOnlineState(!onlineState);
+        console.log('You are now back online.');
+      }
+    }
+    window.addEventListener('online', handleConnectionChange);
+    window.addEventListener('offline', handleConnectionChange);
+  });
 
   return (
     <div className="App">
