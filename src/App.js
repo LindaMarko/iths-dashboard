@@ -10,12 +10,12 @@ import TheFooter from './components/Layout/TheFooter';
 import './App.css';
 
 function App() {
-  const [onlineState, setOnlineState] = useState(true);
+  const [onlineState, setOnlineState] = useState(navigator.onLine);
 
   useEffect(() => {
     const showOffline = () => {
       console.log('Going offline');
-      setOnlineState(false);
+      setOnlineState(!onlineState);
     };
 
     window.addEventListener('offline', showOffline);
