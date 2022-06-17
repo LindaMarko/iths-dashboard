@@ -1,10 +1,12 @@
 # Slutprojekt - Crossplattformutvecklig
+
+## Slutresultat: https://iths-dashboard.netlify.app/
+
+
 ## ITHS Dashboard
 Ni ska bygga en mobilanpassad Dashboard för ITHS.
 
 En dashboard är en instrumentpanel som består av ett rutnät av olika komponenter som antingen visar någon information eller kan interageras med.
-![](dashboard.png)
-
 
 ## Specifikation
 Den ämnas att kunna köras i mobiltelefoner och på TV-skärmen i korridoren.
